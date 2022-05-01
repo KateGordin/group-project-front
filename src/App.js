@@ -7,14 +7,14 @@ import Login from "./pages/Login";
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/events" element={<EventPage />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
