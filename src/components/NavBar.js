@@ -1,6 +1,6 @@
 import React from "react";
 import "./NavBar.scss";
-import event from "../assets/event.jpeg";
+import event from "../assets/music.jpeg";
 import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
