@@ -6,13 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
+
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import Button from "@mui/material/Button";
 
 const ExpandMore = styled((props) => {
@@ -34,20 +34,16 @@ export default function CardComponent(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardHeader
-        avatar={<Avatar sx={{ bgcolor: red[500] }}>R</Avatar>}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={props.title}
-        subheader={props.data}
-      />
+    <Card
+      sx={{
+        maxWidth: 345,
+        margin: 5,
+      }}
+    >
+      <CardHeader title={props.title} subheader={props.data} />
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={props.image}
         alt="Paella dish"
       />
@@ -81,7 +77,7 @@ export default function CardComponent(props) {
         })}
       </div>
 
-      <Button variant="contained">By a ticket</Button>
+      <Button variant="contained">Buy a ticket</Button>
     </Card>
   );
 }
