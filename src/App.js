@@ -21,7 +21,11 @@ function App() {
   }, [dispatch]);
 
   return (
+
     <div className="App">
+
+  
+
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
