@@ -3,7 +3,6 @@ import { fetchEvents } from "../store/Events/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEvents } from "../store/Events/selector";
 import CardComponent from "../components/Card/Card";
-import { Typography } from "@mui/material";
 
 export default function EventPage() {
   const dispatch = useDispatch();
@@ -14,7 +13,9 @@ export default function EventPage() {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center " }}
+    >
       {events
         ? events.map((event) => {
             return (
