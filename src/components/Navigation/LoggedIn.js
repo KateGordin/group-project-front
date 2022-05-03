@@ -1,17 +1,27 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../../store/user/actions";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../store/artist/actions";
 import Button from "react-bootstrap/Button";
-import { selectUser } from "../../store/user/selectors";
+
+import { BsFillPersonFill } from "react-icons/bs";
 import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
 
 export default function LoggedIn() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+
   return (
     <>
-      <Nav.Item style={{ padding: ".5rem 1rem" }}>{user.email}</Nav.Item>
-      {/* <Nav.Item style={{ padding: ".5rem 1rem" }}>}</Nav.Item> */}
+      <Nav.Item style={{ padding: ".5rem 1rem" }}>
+        <div style={{ fontSize: "30px", color: "white" }}>
+          <Link to="/myProfile">
+            {" "}
+            <abbr title="My Profile">
+              <BsFillPersonFill />
+            </abbr>
+          </Link>
+        </div>
+      </Nav.Item>
 
       <Button onClick={() => dispatch(logOut())}>Logout</Button>
     </>

@@ -3,10 +3,15 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent } from "../store/event/actions";
+<<<<<<< HEAD
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Details.css'
 
+=======
+import { useEffect, useState } from "react";
+import PaymentModal from "../components/PaymentModal/PaymentModal";
+>>>>>>> f9987874905dc2b1501189011a84f3f4ff37d6ba
 
 export default function DetailPage() {
   const params = useParams();
@@ -20,6 +25,10 @@ export default function DetailPage() {
   useEffect(() => {
     getOneEvent();
   }, []);
+
+  //for modal (payment)
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const onClose = () => setSelectedEvent(null);
 
   return (
     <div>
@@ -56,6 +65,10 @@ export default function DetailPage() {
                   </MapContainer>
                  </div>
           <button>BUY A TICKET</button>
+
+          {/* for pop-up modal (payment) */}
+          <PaymentModal oneEvent={selectedEvent} onClose={onClose} />
+
         </div>
       )}
     </div>

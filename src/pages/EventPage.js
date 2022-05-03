@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { fetchEvents } from "../store/event/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectEvents } from "../store/event/selector";
 import CardComponent from "../components/Card/Card";
+import { useEffect } from "react";
 
 export default function EventPage() {
   const dispatch = useDispatch();

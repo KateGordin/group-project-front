@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-// import { postEvent } from "../../store/user/actions";
+import { postEvent } from "../../store/artist/actions";
 import { selectToken } from "../../store/artist/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -19,26 +19,43 @@ export default function EventForm() {
   const [description, setDescription] = useState("Description");
   const [mainImage, setMainImage] = useState("");
   const [date, setDate] = useState(new Date());
+  const [images, setImages] = useState([]);
+  const [ticketPrice, setTicketPrice] = useState(50);
+  const [seat, setSeat] = useState(100);
 
   const [place, setPlace] = useState("");
 
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     if (!token) navigate("/login");
-  //   }, [token]);
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token]);
 
   function submitForm(event) {
     event.preventDefault();
 
-    // dispatch(postEvent(title, description, date, place, mainImage));
+    dispatch(
+      postEvent(
+        title,
+        description,
+        date,
+        place,
+        mainImage,
+        images,
+        ticketPrice,
+        seat
+      )
+    );
 
     setTitle("");
     setMainImage(" ");
     setPlace("");
     setDescription("");
     setDate("");
+    setImages("");
+    setTicketPrice("");
+    setSeat("");
   }
 
   const uploadMainImage = async (e) => {
@@ -60,6 +77,24 @@ export default function EventForm() {
     setMainImage(file.url);
   };
 
+  const uploadImage = async (e) => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "xevkbl7f");
+    // console.log("main",files)
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/daokf4bsg/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const file = await res.json();
+    console.log(file);
+    setImages(file.url);
+  };
   return (
     <Container>
       <div className="p-6 mb-4 " style={{ backgroundColor: "whitesmoke" }}>
@@ -99,6 +134,12 @@ export default function EventForm() {
             />
           </Form.Group>
 
+          <Form.Group controlId="formBasicText">
+            <Form.Label className="mt-4">Date</Form.Label>
+
+            <DatePicker selected={date} onChange={(Date) => setDate(date)} />
+          </Form.Group>
+
           <Form.Group>
             <Form.Label className="mt-4">Image</Form.Label>
             <Form.Control
@@ -108,10 +149,36 @@ export default function EventForm() {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicText">
-            <Form.Label className="mt-4">Date</Form.Label>
+          <Form.Group>
+            <Form.Label className="mt-4">Other Images</Form.Label>
+            <Form.Control
+              onChange={uploadImage}
+              type="file"
+              placeholder="url"
+              multiple
+            />
+          </Form.Group>
 
-            <DatePicker selected={date} onChange={(Date) => setDate(date)} />
+          <Form.Group controlId="formBasicText">
+            <Form.Label className="mt-4">Ticket Price</Form.Label>
+            <Form.Control
+              value={ticketPrice}
+              onChange={(event) => setTicketPrice(event.target.value)}
+              type="number"
+              placeholder="Enter price"
+              required
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicText">
+            <Form.Label className="mt-4">Seat Available</Form.Label>
+            <Form.Control
+              value={seat}
+              onChange={(event) => setSeat(event.target.value)}
+              type="number"
+              placeholder="Write available seat"
+              required
+            />
           </Form.Group>
 
           <Form.Group className="mt-5">
@@ -119,7 +186,7 @@ export default function EventForm() {
               Post
             </Button>
           </Form.Group>
-          <Link to="/myspace">Click here to go MyEvent Page</Link>
+          <Link to="/myEvents">Click here to go MyEvent Page</Link>
         </Form>
       </div>
     </Container>
