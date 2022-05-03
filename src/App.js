@@ -10,12 +10,9 @@ import EventPage from "./pages/EventPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import EventForm from "./pages/EventForm";
-<<<<<<< HEAD
 import MyProfile from "./pages/Profile";
 import MyEvent from "./pages/MyEvent";
-=======
 import DetailPage from "./pages/DetailPage";
->>>>>>> c2e7a1de7420472d3b66060c03ab2cfa18aa9c77
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
