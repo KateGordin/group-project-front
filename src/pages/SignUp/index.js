@@ -13,7 +13,7 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isArtist, setsArtist] = useState(false);
-//console.log(isArtist)
+  //console.log(isArtist)
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ export default function SignUp() {
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
             type="checkbox"
-            label="I am anArtist"
+            label="I am an Artist"
             value={isArtist}
             onChange={(e) => {
               if (e.target.type === "checkbox") {
@@ -90,7 +90,12 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group className="mt-5">
-          <Button variant="primary" type="submit" onClick={submitForm}>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={submitForm}
+            disabled={!isArtist}
+          >
             Sign up
           </Button>
         </Form.Group>

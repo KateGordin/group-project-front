@@ -15,11 +15,18 @@ export default function Login() {
   const token = useSelector(selectToken);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (token !== null) {
-      navigate("/");
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+  //   if (token !== null) {
+  //     navigate("/");
+  //   }
+  // }, [token, navigate]);
+
+
+   useEffect(() => {
+     if (token !== null) {
+       navigate(-1);
+     }
+   }, [token, navigate]);
 
   function submitForm(event) {
     //console.log("hi");
