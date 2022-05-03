@@ -6,8 +6,6 @@ import { getDetailEvent } from "../store/event/actions";
 import { useEffect, useState } from "react";
 import PaymentModal from "../components/PaymentModal/PaymentModal";
 
-import { Modal, Box, Typography } from "@mui/material";
-
 export default function DetailPage() {
   const params = useParams();
   const dispatch = useDispatch();

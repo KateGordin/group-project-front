@@ -1,7 +1,6 @@
 import React from "react";
 import "./NavBar.scss";
 import event from "../../assets/music.jpeg";
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -23,7 +22,7 @@ export default function Navigation() {
         <img
           className="navbar__logo"
           alt="logo"
-          style={{ width: 170 }}
+          style={{ width: 170, height: 100 }}
           src={event}
         />
       </NavLink>
