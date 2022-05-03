@@ -1,7 +1,7 @@
-// import React from "react";
-// import "./NavBar.scss";
-// import event from "../assets/music.jpeg";
-// import { NavLink } from "react-router-dom";
+// // import React from "react";
+// // import "./NavBar.scss";
+// // import event from "../assets/music.jpeg";
+// // import { NavLink } from "react-router-dom";
 
 // <<<<<<< HEAD
 // // export default function NavBar() {
@@ -37,10 +37,10 @@
 //         </NavLink>
 // >>>>>>> c2e7a1de7420472d3b66060c03ab2cfa18aa9c77
 
-//         <NavLink end to={"/login"}>
-//           <button className="btn-primary">Log in</button>
-//         </NavLink>
-//       </div>
-//     </div>
-//   );
-// }
+// //         <NavLink end to={"/login"}>
+// //           <button className="btn-primary">Log in</button>
+// //         </NavLink>
+// //       </div>
+// //     </div>
+// //   );
+// // }

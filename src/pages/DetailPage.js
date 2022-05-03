@@ -3,15 +3,12 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent } from "../store/event/actions";
-
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Details.css'
-
-
 import { useEffect, useState } from "react";
 import PaymentModal from "../components/PaymentModal/PaymentModal";
-
+import { Modal, Box, Typography } from "@mui/material";
+import { Carousel } from "react-bootstrap";
 
 export default function DetailPage() {
   const params = useParams();
@@ -39,7 +36,21 @@ export default function DetailPage() {
           <div className="first">
             <div key={oneEvent.id}>
               <h3>{oneEvent.title}</h3>
-              <img src={oneEvent.mainImage} style={{ width: 400 }} />
+              {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
+           <Carousel style={{ width: "30rem" }}>
+              <Carousel.Item>
+                <img
+                  className="w-100"
+                  src={oneEvent.mainImage}
+                  alt={"oneEvent.title"}
+                />
+              </Carousel.Item>
+                {oneEvent.images.map((item) => (
+                  <Carousel.Item key={item.id}>
+                    <img className="w-100" src={item.image} alt={item.id} />
+                  </Carousel.Item>
+                ))}
+            </Carousel>
               <p>{oneEvent.description}</p>
               <p>
                 <span style={{ fontWeight: "bold" }}>When: </span>
