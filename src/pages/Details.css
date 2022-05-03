@@ -1,0 +1,16 @@
+.map {
+    width: 40%;
+  
+  
+    }
+    
+.first-and-second {
+      display:flex;
+     justify-content:space-around;
+    }
+
+    .leaflet-container {
+    width:800px;
+    height:60vh;
+margin-top: 100px;
+}
