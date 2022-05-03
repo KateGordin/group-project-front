@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import PaymentModal from "../PaymentModal/PaymentModal";
 
@@ -46,7 +46,7 @@ export default function CardComponent(props) {
         margin: 5,
       }}
     >
-      <NavLink to={`/events/${props.id}`}>
+      <NavLink to={`/event/${props.id}`}>
         <CardHeader title={props.title} subheader={props.data} />
       </NavLink>
 
@@ -58,7 +58,10 @@ export default function CardComponent(props) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.description}
+         {props.artistName} {props.description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+         <Link to={`/artist/${props.artistId}`}>{props.artistName} </Link>
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
