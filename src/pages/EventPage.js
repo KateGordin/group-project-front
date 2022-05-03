@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { fetchEvents } from "../store/Events/actions";
+import { fetchEvents } from "../store/event/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { selectEvents } from "../store/Events/selector";
+import { selectEvents } from "../store/event/selector";
 import CardComponent from "../components/Card/Card";
 
 export default function EventPage() {
@@ -21,6 +21,7 @@ export default function EventPage() {
             return (
               <CardComponent
                 key={event.id}
+                id={event.id}
                 title={event.title}
                 description={event.description}
                 image={event.mainImage}

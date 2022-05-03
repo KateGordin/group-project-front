@@ -1,8 +1,9 @@
-import { LOGIN_SUCCESS, GET_EVENTS } from "./actions";
+import { LOGIN_SUCCESS, GET_EVENTS, SET_DETAIL_EVENT } from "./actions";
 
 const initialState = {
   login: null,
   events: [],
+  detailPage: null,
 };
 
 export default function eventsReducer(state = initialState, action) {
@@ -20,6 +21,10 @@ export default function eventsReducer(state = initialState, action) {
         events: [...action.payload.events],
       };
     }
+
+    case SET_DETAIL_EVENT:
+      // console.log("action", action);
+      return { ...state, detailPage: action.payload };
 
     default: {
       return state;

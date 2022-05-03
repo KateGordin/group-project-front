@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
+import { NavLink } from "react-router-dom";
 
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -40,7 +41,10 @@ export default function CardComponent(props) {
         margin: 5,
       }}
     >
-      <CardHeader title={props.title} subheader={props.data} />
+      <NavLink to={`/events/${props.id}`}>
+        <CardHeader title={props.title} subheader={props.data} />
+      </NavLink>
+
       <CardMedia
         component="img"
         height="300"

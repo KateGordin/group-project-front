@@ -10,7 +10,7 @@ export default function NavBar() {
         <img
           className="navbar__logo"
           alt="logo"
-          style={{ width: 170 }}
+          style={{ width: 170, height: 90 }}
           src={event}
         />
       </NavLink>
