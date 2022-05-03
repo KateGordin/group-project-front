@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent } from "../store/event/actions";
 import { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import './Details.css'
+
 
 export default function DetailPage() {
   const params = useParams();
@@ -33,8 +36,25 @@ export default function DetailPage() {
           </p>
           <p>
             <span style={{ fontWeight: "bold" }}>Location: </span>
-            {oneEvent.place}
+            {oneEvent.address}
           </p>
+            <div className="map">
+           <MapContainer
+                    center={[oneEvent.latitude, oneEvent.longitude]}
+                    zoom={13}
+                    scrollWheelZoom={false}
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenSrreetMap</a>'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker
+                      position={[oneEvent.latitude, oneEvent.longitude]}
+                    >
+                      <Popup>{oneEvent.address}</Popup>
+                    </Marker>
+                  </MapContainer>
+                 </div>
           <button>BUY A TICKET</button>
         </div>
       )}
