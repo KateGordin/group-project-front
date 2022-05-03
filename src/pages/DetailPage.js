@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import PaymentModal from "../components/PaymentModal/PaymentModal";
 
 import { Modal, Box, Typography } from "@mui/material";
+import { Carousel } from "react-bootstrap";
 
 export default function DetailPage() {
   const params = useParams();
@@ -26,13 +27,29 @@ export default function DetailPage() {
   const onClose = () => setSelectedEvent(null);
 
   return (
-    <div>
+    <div className="m-5">
       {!oneEvent ? (
         "Loading"
       ) : (
         <div key={oneEvent.id}>
           <h3>{oneEvent.title}</h3>
-          <img src={oneEvent.mainImage} style={{ width: 500 }} />
+          {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
+
+          <Carousel style={{ width: "30rem" }}>
+            <Carousel.Item>
+              <img
+                className="w-100"
+                src={oneEvent.mainImage}
+                alt={"oneEvent.title"}
+              />
+            </Carousel.Item>
+            {oneEvent.images.map((item) => (
+              <Carousel.Item key={item.id}>
+                <img className="w-100" src={item.image} alt={item.id} />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+
           <p>{oneEvent.description}</p>
           <p>
             <span style={{ fontWeight: "bold" }}>When: </span>
