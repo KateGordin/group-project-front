@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { deleteEvent } from "../../store/artist/actions";
-import {
-  selectMyEvent,
-  selectToken,
-} from "../../store/artist/selectors";
+import { selectMyEvent, selectToken } from "../../store/artist/selectors";
 
 export default function MyEvent() {
   const dispatch = useDispatch();
@@ -87,7 +84,7 @@ export default function MyEvent() {
                       Delete
                     </Button>
 
-                    <Link to={`/${event.id}`}>
+                    <Link to={`/events/${event.id}`}>
                       <Button variant="primary">Details</Button>
                     </Link>
                   </Card.Body>

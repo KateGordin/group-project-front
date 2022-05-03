@@ -137,7 +137,7 @@ export default function EventForm() {
           <Form.Group controlId="formBasicText">
             <Form.Label className="mt-4">Date</Form.Label>
 
-            <DatePicker selected={date} onChange={(Date) => setDate(date)} />
+            <DatePicker selected={date} onChange={(date) => setDate(date)} />
           </Form.Group>
 
           <Form.Group>
