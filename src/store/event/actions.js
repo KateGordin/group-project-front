@@ -4,6 +4,7 @@ import axios from "axios";
 export const GET_EVENTS = "getEvents/events";
 export const LOGIN_SUCCESS = "loginSuccess/events";
 export const SET_DETAIL_EVENT = "getDetailEvent/events";
+export const FILTER_EVENTS = 'EVENTS_FILTERED'
 
 export const loginSuccess = (artistWithToken) => {
   return {
@@ -33,3 +34,8 @@ export const getDetailEvent = async (id) => {
     payload: response.data,
   };
 };
+
+export const filterEvents = (events) => ({
+  type: FILTER_EVENTS,
+  payload: events,
+});
