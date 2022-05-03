@@ -38,7 +38,9 @@ export default function Navigation() {
           {token && artist.isArtist && (
             <NavbarItem path="/form" linkText="Add Events" />
           )}
-          {token && <NavbarItem path="/myEvents" linkText="My Events" />}
+          {token && artist.isArtist && (
+            <NavbarItem path="/myEvents" linkText="My Events" />
+          )}
           {loginLogoutControls}
         </Nav>
       </div>
