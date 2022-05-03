@@ -3,7 +3,10 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent } from "../store/event/actions";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import PaymentModal from "../components/PaymentModal/PaymentModal";
+
+import { Modal, Box, Typography } from "@mui/material";
 
 export default function DetailPage() {
   const params = useParams();
@@ -17,6 +20,10 @@ export default function DetailPage() {
   useEffect(() => {
     getOneEvent();
   }, []);
+
+  //for modal (payment)
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const onClose = () => setSelectedEvent(null);
 
   return (
     <div>
@@ -35,7 +42,8 @@ export default function DetailPage() {
             <span style={{ fontWeight: "bold" }}>Location: </span>
             {oneEvent.place}
           </p>
-          <button>BUY A TICKET</button>
+          {/* for pop-up modal (payment) */}
+          <PaymentModal oneEvent={selectedEvent} onClose={onClose} />
         </div>
       )}
     </div>
