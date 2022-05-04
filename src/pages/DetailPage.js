@@ -57,14 +57,13 @@ export default function DetailPage() {
                 </Carousel.Item>
               ))}
             </Carousel>
-
-            <p>{oneEvent.description}</p>
-
             <Typography variant="body2" color="text.secondary">
               <Link to={`/artist/${oneEvent.artistId}`}>
-                Know about artist{" "}
+                Know more about artist{" "}
               </Link>
             </Typography>
+
+            <p>{oneEvent.description}</p>
 
             <p>
               <span style={{ fontWeight: "bold" }}>When: </span>
