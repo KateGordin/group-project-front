@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
 import { NavLink, Link } from "react-router-dom";
+import { useState } from "react";
 
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -34,11 +35,9 @@ export default function CardComponent(props) {
     setExpanded(!expanded);
   };
 
-  
   //for modal (payment)
   const [selectedEvent, setSelectedEvent] = useState(null);
   const onClose = () => setSelectedEvent(null);
-
 
   return (
     <Card
