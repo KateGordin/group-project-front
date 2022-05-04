@@ -9,11 +9,13 @@ import {
 
 const initialState = {
   token: localStorage.getItem("token"),
+  id:null,
   name: null,
   email: null,
   image: null,
   isArtist: false,
   about: null,
+  spotifyUrl:null,
   event: [],
 };
 
