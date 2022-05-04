@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent, UPDATE_TICKETS } from "../store/event/actions";
@@ -10,6 +10,8 @@ import PaymentModal from "../components/PaymentModal/PaymentModal";
 import { Carousel } from "react-bootstrap";
 import { updateTicket } from "../store/event/actions";
 import Button from "@mui/material/Button";
+import { Typography } from "@mui/material";
+import { More } from "@mui/icons-material";
 
 export default function DetailPage() {
   const params = useParams();
@@ -55,7 +57,15 @@ export default function DetailPage() {
                 </Carousel.Item>
               ))}
             </Carousel>
+
             <p>{oneEvent.description}</p>
+
+            <Typography variant="body2" color="text.secondary">
+              <Link to={`/artist/${oneEvent.artistId}`}>
+                Know about artist{" "}
+              </Link>
+            </Typography>
+
             <p>
               <span style={{ fontWeight: "bold" }}>When: </span>
               {oneEvent.date}
