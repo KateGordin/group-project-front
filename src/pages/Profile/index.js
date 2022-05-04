@@ -4,17 +4,19 @@ import { useSelector } from "react-redux";
 import Loading from "../../components/Loading";
 import { selectArtist } from "../../store/artist/selectors";
 import EditProfile from "./EditProfile";
-
-import Playercomp from "../../components/MusicPlayerComponent/Playercomp";
+import { selectToken } from "../../store/artist/selectors";
+import { useNavigate } from "react-router-dom";
 
 export default function MyProfile() {
+  
   const [editMode, setEditMode] = useState(false);
-
+  const token = useSelector(selectToken);
   const artist = useSelector(selectArtist);
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   console.log("artist", artist.id);
-  // }, [artist]);
+  useEffect(() => {
+    if (!token) navigate("/login");
+  }, [token]);
 
   if (artist === null) {
     return <Loading />;
@@ -39,7 +41,7 @@ export default function MyProfile() {
 
           {editMode && (
             <Card>
-              <EditProfile />
+              <EditProfile close={() => setEditMode(false)} />
             </Card>
           )}
         </Card.Body>
