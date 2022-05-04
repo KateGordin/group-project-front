@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import CheckoutForm from "../CheckoutForm";
 
 export default function PaymentModal(props) {
   return (
@@ -37,6 +38,7 @@ export default function PaymentModal(props) {
             tickets
             <Button onClick={props.buyTickets}>Press to buy</Button>
           </Typography>
+          <CheckoutForm />
         </Box>
       </Modal>
     </div>

@@ -14,19 +14,23 @@ import MyProfile from "./pages/Profile";
 import MyEvent from "./pages/MyEvent";
 import DetailPage from "./pages/DetailPage";
 import Artist from "./pages/Artist";
-import {fetchEvents} from './store/event/actions'
+import { fetchEvents } from "./store/event/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getArtistWithStoredToken } from "./store/artist/actions";
 import { useEffect } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-
+  const stripePromise = loadStripe(
+    "pk_test_51KvhWVFmQ75pA8SyZu7iPrPsDBrJrhZhecarlRJdF2Qw5lemxdD9my0trM15XZXugN4ezAGhkxeADYeVGj9m0Bwn00Ke05qcPg"
+  );
   useEffect(() => {
     dispatch(getArtistWithStoredToken());
-     dispatch(fetchEvents)
+    dispatch(fetchEvents);
   }, [dispatch]);
 
   return (
@@ -34,19 +38,21 @@ function App() {
       <Navigation />
       <MessageBox />
       {isLoading ? <Loading /> : null}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/events" element={<EventPage />}>
-          <Route path=":filter" element={<EventPage />} />
-        </Route>        
-        <Route path="/event/:id" element={<DetailPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/form" element={<EventForm />} />
-        <Route path="/myProfile" element={<MyProfile />} />
-        <Route path="/myEvents" element={<MyEvent />} />
-        <Route path="/artist/:id" element={<Artist />} />
-      </Routes>
+      <Elements stripe={stripePromise}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<EventPage />}>
+            <Route path=":filter" element={<EventPage />} />
+          </Route>
+          <Route path="/event/:id" element={<DetailPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/form" element={<EventForm />} />
+          <Route path="/myProfile" element={<MyProfile />} />
+          <Route path="/myEvents" element={<MyEvent />} />
+          <Route path="/artist/:id" element={<Artist />} />
+        </Routes>
+      </Elements>
     </div>
   );
 }
