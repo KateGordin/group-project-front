@@ -13,6 +13,7 @@ import EventForm from "./pages/EventForm";
 import MyProfile from "./pages/Profile";
 import MyEvent from "./pages/MyEvent";
 import DetailPage from "./pages/DetailPage";
+import Artist from "./pages/Artist";
 import {fetchEvents} from './store/event/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -44,6 +45,7 @@ function App() {
         <Route path="/form" element={<EventForm />} />
         <Route path="/myProfile" element={<MyProfile />} />
         <Route path="/myEvents" element={<MyEvent />} />
+        <Route path="/artist/:id" element={<Artist />} />
       </Routes>
     </div>
   );

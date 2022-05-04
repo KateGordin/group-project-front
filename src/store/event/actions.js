@@ -8,6 +8,7 @@ export const FILTER_EVENTS = "EVENTS_FILTERED";
 export const UPDATE_TICKETS = "UPDATE_TICKETS";
 export const UPDATE_EVENT_TICKETS = "UPDATE_EVENT_TICKETS";
 
+
 export const loginSuccess = (artistWithToken) => {
   return {
     type: LOGIN_SUCCESS,

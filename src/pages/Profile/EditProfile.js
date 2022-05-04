@@ -9,16 +9,17 @@ import { updateArtist } from "../../store/artist/actions";
 export default function EditProfile() {
   const artist = useSelector(selectArtist);
   const dispatch = useDispatch();
-  
+
   //console.log("artistcompo", artist.id);
 
   const [name, setName] = useState(artist.name);
   const [email, setEmail] = useState(artist.email || "");
   const [image, setImage] = useState(artist.image);
-  const  id  = artist.id;
+  const [about, setAbout] = useState(artist.about);
+  const id = artist.id;
 
   function submitForm(e) {
-    dispatch(updateArtist(name, email, image, id));
+    dispatch(updateArtist(name, email, image, about, id));
   }
 
   return (
@@ -50,6 +51,15 @@ export default function EditProfile() {
         <Form.Control
           value={image}
           onChange={(event) => setImage(event.target.value)}
+          type="text"
+        />
+      </Form.Group>
+
+      <Form.Group>
+        <Form.Label>About</Form.Label>
+        <Form.Control
+          value={about}
+          onChange={(event) => setAbout(event.target.value)}
           type="text"
         />
       </Form.Group>
