@@ -34,6 +34,12 @@ export default function CardComponent(props) {
     setExpanded(!expanded);
   };
 
+  
+  //for modal (payment)
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const onClose = () => setSelectedEvent(null);
+
+
   return (
     <Card
       sx={{
