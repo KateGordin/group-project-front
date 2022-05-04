@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArtist } from "../../store/allArtist/actions";
 import { selectOneArtist } from "../../store/allArtist/selectors";
+import Playercomp from "../../components/MusicPlayerComponent/Playercomp";
 
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -38,6 +39,7 @@ export default function Artist() {
                 <strong>About: </strong>
                 {artist.about}
               </Card.Text>
+              <Playercomp spotifyUrl={artist.spotifyUrl} />
             </Card.Body>
 
             <Link to={`/events`}>
