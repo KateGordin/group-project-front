@@ -4,17 +4,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
-export default function PaymentModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+export default function PaymentModal(props) {
   return (
     <div>
-      <Button onClick={handleOpen}>Buy now</Button>
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={props.isOpen}
+        onClose={props.onClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -33,10 +28,14 @@ export default function PaymentModal() {
           }}
         >
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            €€€ Buy a ticket here €€€
+            This ticket cost{" "}
+            {props.oneEvent.tickets.map((ticket) => ticket.price)} €
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Hurry up to buy a ticket.
+            We have only{" "}
+            {props.oneEvent.tickets.map((ticket) => ticket.numberAvailable)}{" "}
+            tickets
+            <Button onClick={props.buyTickets}>Press to buy</Button>
           </Typography>
         </Box>
       </Modal>
