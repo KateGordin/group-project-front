@@ -5,8 +5,6 @@ import Loading from "../../components/Loading";
 import { selectArtist } from "../../store/artist/selectors";
 import EditProfile from "./EditProfile";
 
-import Playercomp from "../../components/MusicPlayerComponent/Playercomp";
-
 export default function MyProfile() {
   const [editMode, setEditMode] = useState(false);
 

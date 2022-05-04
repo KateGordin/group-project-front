@@ -142,6 +142,7 @@ export const updateArtist = (name, email, image, id) => {
           name,
           email,
           image,
+          
         },
         {
           headers: {
