@@ -9,8 +9,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("meau@gmail.com");
+  const [password, setPassword] = useState("meau");
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const navigate = useNavigate();
@@ -21,12 +21,11 @@ export default function Login() {
   //   }
   // }, [token, navigate]);
 
-
-   useEffect(() => {
-     if (token !== null) {
-       navigate(-1);
-     }
-   }, [token, navigate]);
+  useEffect(() => {
+    if (token !== null) {
+      navigate(-1);
+    }
+  }, [token, navigate]);
 
   function submitForm(event) {
     //console.log("hi");

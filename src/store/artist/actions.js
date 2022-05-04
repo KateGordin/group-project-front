@@ -164,7 +164,7 @@ export const updateArtist = (name, email, image, id) => {
 
 //post events
 
-export const productPostSuccess = (event) => ({
+export const eventPostSuccess = (event) => ({
   type: EVENT_POST_SUCCESS,
   payload: event,
 });
@@ -173,7 +173,7 @@ export const postEvent = (
   title,
   description,
   date,
-  place,
+  address,
   mainImage,
   images,
   ticketPrice,
@@ -192,7 +192,7 @@ export const postEvent = (
           title,
           description,
           date,
-          place,
+          address,
           mainImage,
           images,
           ticketPrice,
@@ -208,7 +208,7 @@ export const postEvent = (
       console.log("Yep!", response.data);
       dispatch(showMessageWithTimeout("sucess", true, "event added", 1500));
 
-      dispatch(productPostSuccess(response.data.event));
+      dispatch(eventPostSuccess(response.data.event));
       dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {

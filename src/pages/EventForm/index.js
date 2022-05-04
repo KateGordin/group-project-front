@@ -23,7 +23,7 @@ export default function EventForm() {
   const [ticketPrice, setTicketPrice] = useState(50);
   const [seat, setSeat] = useState(100);
 
-  const [place, setPlace] = useState("");
+  const [address, setAdress] = useState("");
 
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function EventForm() {
         title,
         description,
         date,
-        place,
+        address,
         mainImage,
         images,
         ticketPrice,
@@ -50,7 +50,7 @@ export default function EventForm() {
 
     setTitle("");
     setMainImage(" ");
-    setPlace("");
+    setAdress("");
     setDescription("");
     setDate("");
     setImages("");
@@ -124,12 +124,12 @@ export default function EventForm() {
           </Form.Group>
 
           <Form.Group controlId="formBasicText">
-            <Form.Label className="mt-4">Place</Form.Label>
+            <Form.Label className="mt-4">Address</Form.Label>
             <Form.Control
-              value={place}
-              onChange={(event) => setPlace(event.target.value)}
+              value={address}
+              onChange={(event) => setAdress(event.target.value)}
               type="text"
-              placeholder="Write place name"
+              placeholder="Write address"
               required
             />
           </Form.Group>

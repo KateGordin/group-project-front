@@ -13,6 +13,7 @@ const initialState = {
   email: null,
   image: null,
   isArtist: false,
+  about: null,
   event: [],
 };
 

@@ -26,6 +26,9 @@ export default function MyProfile() {
           <Card.Title>Email: {artist.email}</Card.Title>
           <Card.Img variant="top" alt="logo" src={artist.image} />
           <Card>
+            <Card.Text>
+              <strong>About:</strong> {artist.about}
+            </Card.Text>
             <Button onClick={() => setEditMode(!editMode)}>
               {editMode ? "Close" : "Edit Profile"}
             </Button>

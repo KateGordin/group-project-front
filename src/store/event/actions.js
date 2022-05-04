@@ -5,6 +5,7 @@ export const GET_EVENTS = "getEvents/events";
 export const LOGIN_SUCCESS = "loginSuccess/events";
 export const SET_DETAIL_EVENT = "getDetailEvent/events";
 
+
 export const loginSuccess = (artistWithToken) => {
   return {
     type: LOGIN_SUCCESS,
@@ -33,3 +34,7 @@ export const getDetailEvent = async (id) => {
     payload: response.data,
   };
 };
+
+
+
+
