@@ -14,7 +14,7 @@ import MyProfile from "./pages/Profile";
 import MyEvent from "./pages/MyEvent";
 import DetailPage from "./pages/DetailPage";
 import Artist from "./pages/Artist";
-
+import {fetchEvents} from './store/event/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getArtistWithStoredToken } from "./store/artist/actions";
@@ -26,6 +26,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getArtistWithStoredToken());
+     dispatch(fetchEvents)
   }, [dispatch]);
 
   return (
@@ -35,8 +36,10 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/events" element={<EventPage />} />
-        <Route path="/events/:id" element={<DetailPage />} />
+        <Route path="/events" element={<EventPage />}>
+          <Route path=":filter" element={<EventPage />} />
+        </Route>        
+        <Route path="/event/:id" element={<DetailPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/form" element={<EventForm />} />

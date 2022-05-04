@@ -16,6 +16,7 @@ export const ARTIST_UPDATED = "ARTIST_UPDATED ";
 export const EVENT_POST_SUCCESS = "EVENT_POST_SUCCESS";
 export const EVENT_DELETE_SUCCESS = "EVENT_DELETE_SUCCESS";
 
+
 //login
 const loginSuccess = (artistWithToken) => {
   return {
