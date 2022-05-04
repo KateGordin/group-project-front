@@ -84,7 +84,7 @@ export default function MyEvent() {
                       Delete
                     </Button>
 
-                    <Link to={`/events/${event.id}`}>
+                    <Link to={`/event/${event.id}`}>
                       <Button variant="primary">Details</Button>
                     </Link>
                   </Card.Body>
