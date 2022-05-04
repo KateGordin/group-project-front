@@ -44,6 +44,7 @@ function App() {
           <Route path="/events" element={<EventPage />}>
             <Route path=":filter" element={<EventPage />} />
           </Route>
+
           <Route path="/event/:id" element={<DetailPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />

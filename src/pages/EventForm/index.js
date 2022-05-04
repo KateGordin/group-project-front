@@ -159,6 +159,8 @@ export default function EventForm() {
             />
           </Form.Group>
 
+          
+
           <Form.Group controlId="formBasicText">
             <Form.Label className="mt-4">Ticket Price</Form.Label>
             <Form.Control
