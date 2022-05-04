@@ -61,6 +61,8 @@ export default function MyEvent() {
                     ))}
                   </Carousel>
 
+        
+
                   <Card.Body>
                     <Card.Title className="text-lowercase">
                       {event.title}

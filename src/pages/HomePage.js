@@ -15,9 +15,7 @@ export default function HomePage() {
 
       <div className="event-button" onClick={() => navigate("/events")}>
         <button>Go To Events</button>
-     
       </div>
-      
     </div>
   );
 }

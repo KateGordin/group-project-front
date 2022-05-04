@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Loading from "../../components/Loading";
 import { selectArtist } from "../../store/artist/selectors";
 import EditProfile from "./EditProfile";
+import Playercomp from "../../components/MusicPlayerComponent/Playercomp";
 
 export default function MyProfile() {
   const [editMode, setEditMode] = useState(false);
@@ -18,26 +19,30 @@ export default function MyProfile() {
     return <Loading />;
   }
   return (
-    <Container className="p-5">
-      <div className="col-6 justify-content-center">
-        <h1 className="text-muted p-2">My Profile</h1>
-        <Card.Body>
-          <Card.Title>Name: {artist.name}</Card.Title>
-          <Card.Title>Email: {artist.email}</Card.Title>
-          <Card.Img variant="top" alt="logo" src={artist.image} />
-          <Card>
-            <Button onClick={() => setEditMode(!editMode)}>
-              {editMode ? "Close" : "Edit Profile"}
-            </Button>
-          </Card>
+    <div>
+      <Playercomp artistId="2K5oIzqUzZKO738h7GT3iv" />
 
-          {editMode && (
+      <Container className="p-5">
+        <div className="col-6 justify-content-center">
+          <h1 className="text-muted p-2">My Profile</h1>
+          <Card.Body>
+            <Card.Title>Name: {artist.name}</Card.Title>
+            <Card.Title>Email: {artist.email}</Card.Title>
+            <Card.Img variant="top" alt="logo" src={artist.image} />
             <Card>
-              <EditProfile />
+              <Button onClick={() => setEditMode(!editMode)}>
+                {editMode ? "Close" : "Edit Profile"}
+              </Button>
             </Card>
-          )}
-        </Card.Body>
-      </div>
-    </Container>
+
+            {editMode && (
+              <Card>
+                <EditProfile />
+              </Card>
+            )}
+          </Card.Body>
+        </div>
+      </Container>
+    </div>
   );
 }

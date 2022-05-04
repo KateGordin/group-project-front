@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectDetailEvent } from "../store/event/selector";
 import { getDetailEvent } from "../store/event/actions";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import './Details.css'
+import "./Details.css";
 import { useEffect, useState } from "react";
 import PaymentModal from "../components/PaymentModal/PaymentModal";
 import { Modal, Box, Typography } from "@mui/material";
@@ -37,20 +37,20 @@ export default function DetailPage() {
             <div key={oneEvent.id}>
               <h3>{oneEvent.title}</h3>
               {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
-           <Carousel style={{ width: "30rem" }}>
-              <Carousel.Item>
-                <img
-                  className="w-100"
-                  src={oneEvent.mainImage}
-                  alt={"oneEvent.title"}
-                />
-              </Carousel.Item>
+              <Carousel style={{ width: "30rem" }}>
+                <Carousel.Item>
+                  <img
+                    className="w-100"
+                    src={oneEvent.mainImage}
+                    alt={"oneEvent.title"}
+                  />
+                </Carousel.Item>
                 {oneEvent.images.map((item) => (
                   <Carousel.Item key={item.id}>
                     <img className="w-100" src={item.image} alt={item.id} />
                   </Carousel.Item>
                 ))}
-            </Carousel>
+              </Carousel>
               <p>{oneEvent.description}</p>
               <p>
                 <span style={{ fontWeight: "bold" }}>When: </span>

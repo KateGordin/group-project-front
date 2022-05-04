@@ -32,6 +32,8 @@ export default function EventPage() {
             );
           })
         : "loading"}
+
+
     </div>
   );
 }
