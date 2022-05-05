@@ -42,7 +42,7 @@ export default function PaymentModal(props) {
             We have only{" "}
             {props.oneEvent.tickets.map((ticket) => ticket.numberAvailable)}{" "}
             tickets
-            <Button onClick={props.buyTickets}>Press to buy</Button>
+            {/* <Button onClick={props.buyTickets}>Press to buy</Button> */}
           </Typography>
           {/* <CheckoutForm /> */}
           <StripeCheckout
@@ -51,10 +51,10 @@ export default function PaymentModal(props) {
             name="Buy now"
             amount={props.oneEvent.tickets.map((ticket) => ticket.price) * 100}
           >
-            <button className="btn-large pink">
+            <Button sx={{ margin: 5 }} variant="contained">
               Buy ticket for only{" "}
               {props.oneEvent.tickets.map((ticket) => ticket.price)} €
-            </button>
+            </Button>
           </StripeCheckout>
         </Box>
       </Modal>
