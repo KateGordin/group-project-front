@@ -32,11 +32,11 @@ export default function EventPage() {
 
   return (
     <div
+      className="eventpage-class"
       style={{
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center ",
-        backgroundColor: "black",
       }}
     >
       {eventsFiltered
