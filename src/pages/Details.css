@@ -1,5 +1,7 @@
 .map {
   width: 40%;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-and-second {
@@ -13,9 +15,5 @@
   width: 450px;
   height: 30vh;
   margin-top: 10px;
-}
-
-.first {
-  justify-content: center;
-  align-items: center;
+  margin-left: 27%;
 }

@@ -47,7 +47,6 @@ export default function DetailPage() {
           <Card
             sx={{
               textAlign: "center",
-              alignItems: "center",
               width: "1000px",
               backgroundColor: "black",
             }}
@@ -55,7 +54,12 @@ export default function DetailPage() {
             <div className="first">
               <h3 style={{ color: "white" }}>{oneEvent.title}</h3>
               {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
-              <Carousel style={{ width: "30rem" }}>
+              <Carousel
+                style={{
+                  marginLeft: "26%",
+                  width: "30rem",
+                }}
+              >
                 <Carousel.Item>
                   <img
                     style={{ height: "200px" }}
