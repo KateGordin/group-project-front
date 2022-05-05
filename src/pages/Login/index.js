@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
+import "./Style.css";
+
 export default function Login() {
   const [email, setEmail] = useState("meau@gmail.com");
   const [password, setPassword] = useState("meau");
@@ -38,7 +40,7 @@ export default function Login() {
   }
 
   return (
-    <Container>
+    <Container className="login-style">
       <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5" style={{}}>
         <h1 className="mt-5 mb-5">Login</h1>
         <Form.Group controlId="formBasicEmail">
