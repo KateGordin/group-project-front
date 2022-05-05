@@ -4,8 +4,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import CheckoutForm from "../CheckoutForm";
+import StripeCheckout from "react-stripe-checkout";
+import { apiUrl } from "../../config/constants";
 
 export default function PaymentModal(props) {
+  const makePayment = (token) => {
+    props.buyTickets(token);
+  };
+
   return (
     <div>
       <Modal
@@ -38,7 +44,18 @@ export default function PaymentModal(props) {
             tickets
             <Button onClick={props.buyTickets}>Press to buy</Button>
           </Typography>
-          <CheckoutForm />
+          {/* <CheckoutForm /> */}
+          <StripeCheckout
+            stripeKey={process.env.REACT_APP_KEY}
+            token={makePayment}
+            name="Buy now"
+            amount={props.oneEvent.tickets.map((ticket) => ticket.price) * 100}
+          >
+            <button className="btn-large pink">
+              Buy ticket for only{" "}
+              {props.oneEvent.tickets.map((ticket) => ticket.price)} €
+            </button>
+          </StripeCheckout>
         </Box>
       </Modal>
     </div>

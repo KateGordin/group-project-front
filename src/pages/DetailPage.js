@@ -25,8 +25,10 @@ export default function DetailPage() {
   const getOneEvent = async () => dispatch(await getDetailEvent(params.id));
 
   //buy tickets
-  const buyTickets = async () =>
-    dispatch(await updateTicket(oneEvent.tickets[0].id, 1, UPDATE_TICKETS));
+  const buyTickets = async (token) =>
+    dispatch(
+      await updateTicket(oneEvent.tickets[0].id, 1, UPDATE_TICKETS, token)
+    );
 
   //for modal (payment)
   const [isOpen, setModalState] = useState(false);
@@ -103,21 +105,26 @@ export default function DetailPage() {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenSrreetMap</a>'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
-                  <Popup>{oneEvent.address}</Popup>
-                </Marker>
-              </MapContainer>
-            </div>
-            <div className="second"></div>
-            {oneEvent && (
-              <PaymentModal
-                buyTickets={buyTickets}
-                oneEvent={oneEvent}
-                onClose={onClose}
-                isOpen={isOpen}
-              />
+
+
+              <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
+                <Popup>{oneEvent.address}</Popup>
+              </Marker>
+            </MapContainer>
+          </div>
+          {oneEvent && (
+            <PaymentModal
+              buyTickets={buyTickets}
+              oneEvent={oneEvent}
+              onClose={onClose}
+              isOpen={isOpen}
+              // token={token}
+            />
+          )}
+
             )}
           </Card>
+
         </div>
       )}
     </>

@@ -8,7 +8,6 @@ export const FILTER_EVENTS = "EVENTS_FILTERED";
 export const UPDATE_TICKETS = "UPDATE_TICKETS";
 export const UPDATE_EVENT_TICKETS = "UPDATE_EVENT_TICKETS";
 
-
 export const loginSuccess = (artistWithToken) => {
   return {
     type: LOGIN_SUCCESS,
@@ -40,7 +39,7 @@ export const getDetailEvent = async (id) => {
 
 //tickets
 export const updateTicket =
-  async (ticketId, numberOfTickets, type) => async (dispatch) => {
+  async (ticketId, numberOfTickets, type, token) => async (dispatch) => {
     const res = await axios.post(`${apiUrl}/events/buyticket`, {
       ticketId,
       numberOfTickets,
@@ -49,6 +48,7 @@ export const updateTicket =
     dispatch({
       type,
       payload: res.data,
+      token,
     });
   };
 
