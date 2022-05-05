@@ -27,8 +27,12 @@ export default function MyProfile() {
       <div className="col-6 justify-content-center">
         <h1 className=" p-2">My Profile</h1>
         <Card.Body>
-          <Card.Title>Name: {artist.name}</Card.Title>
-          <Card.Title>Email: {artist.email}</Card.Title>
+          <Card.Title style={{ color: "rgb(2, 2, 46)" }}>
+            Name: {artist.name}
+          </Card.Title>
+          <Card.Title style={{ color: "rgb(2, 2, 46)" }}>
+            Email: {artist.email}
+          </Card.Title>
           <Card.Img variant="top" alt="logo" src={artist.image} />
           <Card>
             <Card.Text>
