@@ -99,7 +99,9 @@ export default function EventForm() {
     <Container>
       <div className="p-6 mb-4 " style={{ backgroundColor: "whitesmoke" }}>
         <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-4">
-          <h1 className=" p-4 mt-3 mb-2">Post Events</h1>
+          <h1 style={{ color: "black" }} className=" p-4 mt-3 mb-2">
+            Post Events
+          </h1>
           <Form.Group controlId="formBasicName">
             <Form.Label>Title</Form.Label>
 
@@ -158,8 +160,6 @@ export default function EventForm() {
               multiple
             />
           </Form.Group>
-
-          
 
           <Form.Group controlId="formBasicText">
             <Form.Label className="mt-4">Ticket Price</Form.Label>
