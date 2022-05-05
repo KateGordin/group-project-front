@@ -13,9 +13,10 @@
 } */
 
 .card-body {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   border-radius: 14px;
   color: rgb(49, 62, 160);
+  
 }
 
 .card-title.h5,
