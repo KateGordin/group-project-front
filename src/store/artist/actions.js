@@ -16,7 +16,6 @@ export const ARTIST_UPDATED = "ARTIST_UPDATED ";
 export const EVENT_POST_SUCCESS = "EVENT_POST_SUCCESS";
 export const EVENT_DELETE_SUCCESS = "EVENT_DELETE_SUCCESS";
 
-
 //login
 const loginSuccess = (artistWithToken) => {
   return {
@@ -108,14 +107,13 @@ export const getArtistWithStoredToken = () => {
       dispatch(tokenStillValid(response.data));
       dispatch(appDoneLoading());
     } catch (error) {
-      if (error.response) {
-        console.log(error.response.message);
-      } else {
-        console.log(error);
-      }
+      // if (error.response) {
+      //   console.log(error.response.message);
+      // } else {
+      //   console.log(error);
+      // }
       // if we get a 4xx or 5xx response,
       // get rid of the token by logging out
-      dispatch(logOut());
       dispatch(appDoneLoading());
     }
   };
@@ -127,14 +125,14 @@ export const artistUpdate = (artist) => ({
   payload: artist,
 });
 
-export const updateArtist = (name, email, image, id) => {
+export const updateArtist = (name, email, image, about, id) => {
   return async (dispatch, getState) => {
     try {
       // const { token } = selectArtist(getState());
       const token = selectToken(getState());
       dispatch(appLoading());
       // console.log("action art",name, email, id);
-      console.log("token", token);
+      //console.log("token", token);
 
       const response = await axios.patch(
         `${apiUrl}/events/${id}`,
@@ -142,6 +140,7 @@ export const updateArtist = (name, email, image, id) => {
           name,
           email,
           image,
+          about,
         },
         {
           headers: {
@@ -155,7 +154,7 @@ export const updateArtist = (name, email, image, id) => {
       dispatch(
         showMessageWithTimeout("success", false, "update successfull", 3000)
       );
-      dispatch(artistUpdate(response));
+      dispatch(artistUpdate(response.data));
       dispatch(appDoneLoading());
     } catch (e) {
       console.log(e.message);

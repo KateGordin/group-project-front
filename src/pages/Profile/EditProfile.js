@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectArtist } from "../../store/artist/selectors";
 import { updateArtist } from "../../store/artist/actions";
 
-export default function EditProfile() {
+export default function EditProfile(props) {
   const artist = useSelector(selectArtist);
   const dispatch = useDispatch();
 
@@ -19,7 +19,9 @@ export default function EditProfile() {
   const id = artist.id;
 
   function submitForm(e) {
+    e.preventDefault(); // stop page from refreshing when subittimg form :)
     dispatch(updateArtist(name, email, image, about, id));
+    props.close();
   }
 
   return (
@@ -42,7 +44,7 @@ export default function EditProfile() {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           type="text"
-          placeholder="Update your name"
+          placeholder="Update your email"
         />
       </Form.Group>
 

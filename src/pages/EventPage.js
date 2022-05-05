@@ -32,7 +32,12 @@ export default function EventPage() {
 
   return (
     <div
-      style={{ display: "flex", flexWrap: "wrap", justifyContent: "center " }}
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center ",
+        backgroundColor: "black",
+      }}
     >
       {eventsFiltered
         ? toMap.map((event) => {

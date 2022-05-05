@@ -1,16 +1,21 @@
 .map {
-    width: 40%;
-  
-  
-    }
-    
-.first-and-second {
-      display:flex;
-     justify-content:space-around;
-    }
+  width: 40%;
+}
 
-    .leaflet-container {
-    width:800px;
-    height:60vh;
-margin-top: 100px;
+.first-and-second {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  align-items: center;
+}
+
+.leaflet-container {
+  width: 450px;
+  height: 30vh;
+  margin-top: 10px;
+}
+
+.first {
+  justify-content: center;
+  align-items: center;
 }
