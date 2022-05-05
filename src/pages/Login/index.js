@@ -6,7 +6,7 @@ import { login } from "../../store/artist/actions";
 import { selectToken } from "../../store/artist/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
+import { Carousel, Col } from "react-bootstrap";
 
 import "./Style.css";
 
@@ -73,6 +73,8 @@ export default function Login() {
           Click here to sign up
         </Link>
       </Form>
+     
     </Container>
+    
   );
 }

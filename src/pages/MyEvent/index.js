@@ -44,7 +44,7 @@ export default function MyEvent() {
               return (
                 <Card
                   clssName=" d-flex"
-                  style={{ width: "18rem" }}
+                  style={{ width: "18rem",}}
                   key={event.id}
                 >
                   <Carousel>
