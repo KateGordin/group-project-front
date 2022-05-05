@@ -1,0 +1,28 @@
+.p-5 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* .p-5 .p-5 img {
+  max-width: 300px;
+  position: absolute;
+  left: 80px;
+  top: 150px;
+} */
+
+.card-body {
+  background-color: rgb(0, 0, 0);
+  border-radius: 14px;
+  color: rgb(49, 62, 160);
+}
+
+.card-title.h5,
+.h1 {
+  color: white;
+}
+
+h1 {
+  color: white;
+}

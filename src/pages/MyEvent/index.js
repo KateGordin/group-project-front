@@ -7,6 +7,8 @@ import Loading from "../../components/Loading";
 import { deleteEvent } from "../../store/artist/actions";
 import { selectMyEvent, selectToken } from "../../store/artist/selectors";
 
+import "./Style.css";
+
 export default function MyEvent() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
