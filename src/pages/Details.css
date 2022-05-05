@@ -9,6 +9,12 @@
   justify-content: center;
   margin: 50px;
   align-items: center;
+  padding-bottom: 50px;
+}
+
+.first {
+  padding-bottom: 30px;
+  padding-top: 15px;
 }
 
 .leaflet-container {
@@ -17,9 +23,5 @@
   margin-top: 10px;
   margin-left: 27%;
 }
-
-
-
-
 
 /* LETS CGHECJ */

@@ -38,61 +38,63 @@ export default function MyEvent() {
         className=""
         style={{ columnGap: "15px", rowGap: "15px" }}
       >
-        {events.length === 0
-          ? "No events added yet"
-          : events.map((event) => {
-              return (
-                <Card
-                  clssName=" d-flex"
-                  style={{ width: "18rem",}}
-                  key={event.id}
-                >
-                  <Carousel>
-                    <Carousel.Item>
-                      <img
-                        className="w-100"
-                        // class="mcard-img-top"
-                        src={event.mainImage}
-                        alt={"event.title"}
-                      />
+        {events.length === 0 ? (
+          <p style={{ color: "white" }}>No events added yet</p>
+        ) : (
+          events.map((event) => {
+            return (
+              <Card
+                clssName=" d-flex"
+                style={{ width: "18rem" }}
+                key={event.id}
+              >
+                <Carousel>
+                  <Carousel.Item>
+                    <img
+                      className="w-100"
+                      // class="mcard-img-top"
+                      src={event.mainImage}
+                      alt={"event.title"}
+                    />
+                  </Carousel.Item>
+                  {event.images.map((item) => (
+                    <Carousel.Item key={item.id}>
+                      <img className="w-100" src={item.image} alt={item.id} />
                     </Carousel.Item>
-                    {event.images.map((item) => (
-                      <Carousel.Item key={item.id}>
-                        <img className="w-100" src={item.image} alt={item.id} />
-                      </Carousel.Item>
-                    ))}
-                  </Carousel>
+                  ))}
+                </Carousel>
 
-                  <Card.Body>
-                    <Card.Title className="text-lowercase">
-                      {event.title}
-                    </Card.Title>
-                    <Card.Text>{event.description}</Card.Text>
-                    <Card.Text>{event.date}</Card.Text>
-                    <Card.Text>{event.place}</Card.Text>
+                <Card.Body>
+                  <Card.Title className="text-lowercase">
+                    {event.title}
+                  </Card.Title>
+                  <Card.Text>{event.description}</Card.Text>
+                  <Card.Text>{event.date}</Card.Text>
+                  <Card.Text>{event.place}</Card.Text>
 
-                    {event.tickets.map((ticket) => {
-                      return (
-                        <div>
-                          <Card.Text>
-                            {" "}
-                            No. of tickets available:{" "}
-                            <strong>{ticket.numberAvailable}</strong>
-                          </Card.Text>
-                        </div>
-                      );
-                    })}
-                    <Button variant="danger" onClick={() => onDelete(event.id)}>
-                      Delete
-                    </Button>
+                  {event.tickets.map((ticket) => {
+                    return (
+                      <div>
+                        <Card.Text>
+                          {" "}
+                          No. of tickets available:{" "}
+                          <strong>{ticket.numberAvailable}</strong>
+                        </Card.Text>
+                      </div>
+                    );
+                  })}
+                  <Button variant="danger" onClick={() => onDelete(event.id)}>
+                    Delete
+                  </Button>
 
-                    <Link to={`/event/${event.id}`}>
-                      <Button variant="primary">Details</Button>
-                    </Link>
-                  </Card.Body>
-                </Card>
-              );
-            })}
+                  <Link to={`/event/${event.id}`}>
+                    <Button variant="primary">Details</Button>
+                  </Link>
+                </Card.Body>
+              </Card>
+            );
+          })
+        )}
       </Row>
     </Container>
   );
