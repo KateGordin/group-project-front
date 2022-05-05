@@ -7,8 +7,9 @@ import EditProfile from "./EditProfile";
 import { selectToken } from "../../store/artist/selectors";
 import { useNavigate } from "react-router-dom";
 
+import "./Style.css";
+
 export default function MyProfile() {
-  
   const [editMode, setEditMode] = useState(false);
   const token = useSelector(selectToken);
   const artist = useSelector(selectArtist);
@@ -24,7 +25,7 @@ export default function MyProfile() {
   return (
     <Container className="p-5">
       <div className="col-6 justify-content-center">
-        <h1 className="text-muted p-2">My Profile</h1>
+        <h1 className=" p-2">My Profile</h1>
         <Card.Body>
           <Card.Title>Name: {artist.name}</Card.Title>
           <Card.Title>Email: {artist.email}</Card.Title>
