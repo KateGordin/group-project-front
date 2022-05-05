@@ -23,8 +23,10 @@ export default function DetailPage() {
   const getOneEvent = async () => dispatch(await getDetailEvent(params.id));
 
   //buy tickets
-  const buyTickets = async () =>
-    dispatch(await updateTicket(oneEvent.tickets[0].id, 1, UPDATE_TICKETS));
+  const buyTickets = async (token) =>
+    dispatch(
+      await updateTicket(oneEvent.tickets[0].id, 1, UPDATE_TICKETS, token)
+    );
 
   //for modal (payment)
   const [isOpen, setModalState] = useState(false);
@@ -96,6 +98,7 @@ export default function DetailPage() {
               oneEvent={oneEvent}
               onClose={onClose}
               isOpen={isOpen}
+              // token={token}
             />
           )}
         </div>

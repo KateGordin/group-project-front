@@ -16,6 +16,8 @@ export default function CheckoutForm() {
       type: "card",
       card: elements.getElement(CardElement),
     });
+    console.log("error", error);
+    console.log("paymentMethod", paymentMethod);
   };
 
   return (
