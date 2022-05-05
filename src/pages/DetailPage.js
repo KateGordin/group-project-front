@@ -54,9 +54,8 @@ export default function DetailPage() {
               {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
               <Carousel
                 style={{
+                  marginLeft: "26%",
                   width: "30rem",
-                  justifyContent: "center",
-                  alignItems: "center",
                 }}
               >
                 <Carousel.Item>

@@ -1,14 +1,19 @@
 .map {
   width: 40%;
+  justify-content: center;
+  align-items: center;
 }
 
 .first-and-second {
   display: flex;
+  justify-content: center;
   margin: 50px;
+  align-items: center;
 }
 
 .leaflet-container {
   width: 450px;
   height: 30vh;
   margin-top: 10px;
+  margin-left: 27%;
 }
