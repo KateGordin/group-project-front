@@ -11,7 +11,9 @@ import { Carousel } from "react-bootstrap";
 import { updateTicket } from "../store/event/actions";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
+import Card from "@mui/material/Card";
 import { More } from "@mui/icons-material";
+import { height } from "@mui/system";
 
 export default function DetailPage() {
   const params = useParams();
@@ -40,64 +42,82 @@ export default function DetailPage() {
         "Loading"
       ) : (
         <div className="first-and-second">
-          <div className="first">
-            <h3>{oneEvent.title}</h3>
-            {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
-            <Carousel style={{ width: "30rem" }}>
-              <Carousel.Item>
-                <img
-                  className="w-100"
-                  src={oneEvent.mainImage}
-                  alt={"oneEvent.title"}
-                />
-              </Carousel.Item>
-              {oneEvent.images.map((item) => (
-                <Carousel.Item key={item.id}>
-                  <img className="w-100" src={item.image} alt={item.id} />
+          <Card
+            sx={{
+              textAlign: "center",
+              alignItems: "center",
+              width: "1000px",
+              backgroundColor: "black",
+            }}
+          >
+            <div className="first">
+              <h3 style={{ color: "white" }}>{oneEvent.title}</h3>
+              {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
+              <Carousel style={{ width: "30rem" }}>
+                <Carousel.Item>
+                  <img
+                    style={{ height: "200px" }}
+                    className="w-100"
+                    src={oneEvent.mainImage}
+                    alt={"oneEvent.title"}
+                  />
                 </Carousel.Item>
-              ))}
-            </Carousel>
-            <Typography variant="body2" color="text.secondary">
-              <Link to={`/artist/${oneEvent.artistId}`}>
-                Know more about artist{" "}
-              </Link>
-            </Typography>
+                {oneEvent.images.map((item) => (
+                  <Carousel.Item key={item.id}>
+                    <img
+                      className="w-100"
+                      style={{ height: "200px" }}
+                      src={item.image}
+                      alt={item.id}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+              <Typography variant="h5" color="text.secondary">
+                <Link to={`/artist/${oneEvent.artistId}`}>
+                  Know more about artist{" "}
+                </Link>
+              </Typography>
 
-            <p>{oneEvent.description}</p>
+              <p style={{ color: "white" }}>{oneEvent.description}</p>
 
-            <p>
-              <span style={{ fontWeight: "bold" }}>When: </span>
-              {oneEvent.date}
-            </p>
-            <p>
-              <span style={{ fontWeight: "bold" }}>Location: </span>
-              {oneEvent.address}
-            </p>
-            <Button onClick={setModalState}>BYU NOW</Button>
-          </div>
-          <div className="second">
-            <MapContainer
-              center={[oneEvent.latitude, oneEvent.longitude]}
-              zoom={14}
-              scrollWheelZoom={true}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenSrreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              <p style={{ color: "white" }}>
+                <span style={{ fontWeight: "bold", color: "white" }}>
+                  When:{" "}
+                </span>
+                {oneEvent.date}
+              </p>
+              <p style={{ color: "white" }} s>
+                <span style={{ fontWeight: "bold", color: "white" }}>
+                  Location:{" "}
+                </span>
+                {oneEvent.address}
+              </p>
+              <Button onClick={setModalState}>BUY NOW</Button>
+              <MapContainer
+                center={[oneEvent.latitude, oneEvent.longitude]}
+                zoom={14}
+                scrollWheelZoom={true}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenSrreetMap</a>'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
+                  <Popup>{oneEvent.address}</Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+            <div className="second"></div>
+            {oneEvent && (
+              <PaymentModal
+                buyTickets={buyTickets}
+                oneEvent={oneEvent}
+                onClose={onClose}
+                isOpen={isOpen}
               />
-              <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
-                <Popup>{oneEvent.address}</Popup>
-              </Marker>
-            </MapContainer>
-          </div>
-          {oneEvent && (
-            <PaymentModal
-              buyTickets={buyTickets}
-              oneEvent={oneEvent}
-              onClose={onClose}
-              isOpen={isOpen}
-            />
-          )}
+            )}
+          </Card>
         </div>
       )}
     </>
