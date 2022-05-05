@@ -53,7 +53,6 @@ export default function DetailPage() {
           >
             <div className="first">
               <h3 style={{ color: "white" }}>{oneEvent.title}</h3>
-              {/* <img src={oneEvent.mainImage} style={{ width: 500 }} /> */}
               <Carousel
                 style={{
                   marginLeft: "26%",
@@ -62,7 +61,7 @@ export default function DetailPage() {
               >
                 <Carousel.Item>
                   <img
-                    style={{ height: "200px" }}
+                    style={{ height: "200px", width: "auto", height: "auto" }}
                     className="w-100"
                     src={oneEvent.mainImage}
                     alt={"oneEvent.title"}
@@ -72,7 +71,7 @@ export default function DetailPage() {
                   <Carousel.Item key={item.id}>
                     <img
                       className="w-100"
-                      style={{ height: "200px" }}
+                      style={{ height: "200px", width: "auto", height: "auto" }}
                       src={item.image}
                       alt={item.id}
                     />
