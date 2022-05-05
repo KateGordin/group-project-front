@@ -46,38 +46,44 @@ export default function CardComponent(props) {
         margin: 5,
       }}
     >
-      <NavLink to={`/event/${props.id}`}>
-        <CardHeader title={props.title} subheader={props.data} />
+      <NavLink
+        style={{
+          textDecoration: "none",
+          color: "darkblue",
+          textAlign: "center",
+        }}
+        to={`/event/${props.id}`}
+      >
+        <h2>
+          {props.title}
+          {props.data}
+        </h2>
       </NavLink>
 
       <CardMedia
         component="img"
         height="300"
         image={props.image}
-        alt="Paella dish"
+        alt={props.title}
       />
-      <CardContent>
+      <div style={{ margin: "20px" }}>
         <Typography variant="body2" color="text.secondary">
           {props.artistName} {props.description}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          <Link to={`/artist/${props.artistId}`}>{props.artistName} </Link>
+        <Typography variant="p">
+          <Link style={{ color: "darkblue" }} to={`/artist/${props.artistId}`}>
+            {props.artistName}{" "}
+          </Link>
         </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="By a ticket">
-          <FavoriteIcon />
-        </IconButton>
+
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-        >
-          <ExpandMoreIcon />
-        </ExpandMore>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit></Collapse>
-      <div>
+        />
+
+        <Collapse in={expanded} timeout="auto" unmountOnExit></Collapse>
+        <div></div>
         {props.tickets.map((ticket) => {
           return (
             <div key={ticket.id}>
