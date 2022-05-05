@@ -106,25 +106,21 @@ export default function DetailPage() {
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-
-              <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
-                <Popup>{oneEvent.address}</Popup>
-              </Marker>
-            </MapContainer>
-          </div>
-          {oneEvent && (
-            <PaymentModal
-              buyTickets={buyTickets}
-              oneEvent={oneEvent}
-              onClose={onClose}
-              isOpen={isOpen}
-              // token={token}
-            />
-          )}
-
+                <Marker position={[oneEvent.latitude, oneEvent.longitude]}>
+                  <Popup>{oneEvent.address}</Popup>
+                </Marker>
+              </MapContainer>
+            </div>
+            {oneEvent && (
+              <PaymentModal
+                buyTickets={buyTickets}
+                oneEvent={oneEvent}
+                onClose={onClose}
+                isOpen={isOpen}
+                // token={token}
+              />
             )}
           </Card>
-
         </div>
       )}
     </>
