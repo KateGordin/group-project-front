@@ -43,6 +43,7 @@ export const updateTicket =
     const res = await axios.post(`${apiUrl}/events/buyticket`, {
       ticketId,
       numberOfTickets,
+      token,
     });
     console.log("res tickets", res);
     dispatch({
