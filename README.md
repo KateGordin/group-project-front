@@ -1,7 +1,6 @@
 # Event Platform 
 Click here for the deployed version
-
-[https://organize-your-event.netlify.app/](url)
+[Organize-your-event.netlify.app](https://organize-your-event.netlify.app/)
 
 ### a website to find events and buy tickets
 ![a website to find events and buy tickets](https://res.cloudinary.com/dqqb0ldgk/image/upload/c_scale,w_600/v1652443619/pictures%20for%20Event%20Platform/EP_Events2_ey0xw3.png)
