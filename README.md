@@ -1,5 +1,6 @@
 # Event Platform 
-Click here for the deployed version
+Click here for the deployed version:
+
 [Organize-your-event.netlify.app](https://organize-your-event.netlify.app/)
 
 ### a website to find events and buy tickets
