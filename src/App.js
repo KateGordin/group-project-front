@@ -25,9 +25,7 @@ import { loadStripe } from "@stripe/stripe-js";
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
-  const stripePromise = loadStripe(
-    "pk_test_51KvhWVFmQ75pA8SyZu7iPrPsDBrJrhZhecarlRJdF2Qw5lemxdD9my0trM15XZXugN4ezAGhkxeADYeVGj9m0Bwn00Ke05qcPg"
-  );
+  const stripePromise = loadStripe(process.env.REACT_APP_KEY);
   useEffect(() => {
     dispatch(getArtistWithStoredToken());
     dispatch(fetchEvents);

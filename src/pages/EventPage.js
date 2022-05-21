@@ -21,9 +21,14 @@ export default function EventPage() {
   const onClose = () => setSelectedEvent(null);
 
   //buy tickets
-  const buyTickets = async () =>
+  const buyTickets = async (token) =>
     dispatch(
-      await updateTicket(selectedEvent.tickets[0].id, 1, UPDATE_EVENT_TICKETS)
+      await updateTicket(
+        selectedEvent.tickets[0].id,
+        1,
+        UPDATE_EVENT_TICKETS,
+        token
+      )
     );
 
   useEffect(() => {
